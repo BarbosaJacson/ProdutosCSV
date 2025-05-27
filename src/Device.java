@@ -1,10 +1,10 @@
-public class Eletros {
+public class Device {
 
     private String name;
     private double price;
     private int quantity;
 
-    public Eletros(String name, double price, int quantity) {
+    public Device(String name, double price, int quantity) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;

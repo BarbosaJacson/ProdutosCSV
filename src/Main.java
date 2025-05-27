@@ -12,9 +12,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         BufferedReader br = null;
         //Diretório = "C:\\Users\\Jackson\\Desktop\\exerciciosJava\\lista.csv";
-        List<Eletros> list = new ArrayList<>();
+        List<Device> list = new ArrayList<>();
 
-        System.out.print("Digite o caminho do arquivo: ");
+        System.out.print("Enter the file path: ");
         String path = scanner.nextLine();
         try {
             fr = new FileReader(path);
@@ -24,8 +24,8 @@ public class Main {
                 String[] fields = line.split(",");
                 System.out.println(line);
                 line = br.readLine();
-                Eletros eletros = new Eletros(fields[0], Double.parseDouble(fields[1]), Integer.parseInt(fields[2]));
-                list.add(eletros);
+                Device device = new Device(fields[0], Double.parseDouble(fields[1]), Integer.parseInt(fields[2]));
+                list.add(device);
                    }
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
@@ -39,7 +39,7 @@ public class Main {
                 e.printStackTrace();
             }
         }
-        System.out.print("Digite o caminho de saída do arquivo: ");
+        System.out.print("Enter the output path of the file: ");
         File outFolder = new File(scanner.nextLine());
         //diretório = "C:\\Users\\Jackson\\Desktop\\exerciciosJava\\out");
         if (!outFolder.exists()) {
@@ -48,7 +48,7 @@ public class Main {
         String summaryPath = "C:\\Users\\Jackson\\Desktop\\exerciciosJava\\out\\summary.csv";
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(summaryPath));
-            for (Eletros e : list) {
+            for (Device e : list) {
                 System.out.println(e.getName() + ": " + e.total());
                 bw.write(e.getName() + ": " + e.total());
                 bw.newLine();
